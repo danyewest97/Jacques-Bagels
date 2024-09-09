@@ -1,13 +1,9 @@
-.center {
-	text-align: center;
+.navbar-nav > li {
+	font-size: 35px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
-#about {
-	display: block;
-	padding-left: 150px;
-	padding-right: 150px;
-}
-
-#nav-logo {
-	height: 75px;
+.navbar-brand {
+	font-size: 35px;
 }
