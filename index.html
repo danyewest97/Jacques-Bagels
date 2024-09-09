@@ -16,39 +16,52 @@
 	</head>
 	
 	<body>
+	
 		<!-- Main Navbar -->
-		<nav class="navbar navbar-dark navbar-expand-sm bg-dark">
-		  <div class="container-fluid">
-			
-			<!-- Jacques' Bagels brand logo on the navbar -->
-			<a class="navbar-brand" href="#">
-			<!-- Logo image can be inserted here -->
-			Jacques' Bagels
-			</a>
-			
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-			  <span class="navbar-toggler-icon"></span>
-			</button>
-			
-			<!-- Navbar elements -->
-			<ul class="navbar-nav">
-			  <li class="nav-item">
-				<a class="nav-link" href="#">Home</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="#">Reservations</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="#">Menu</a>
-			  </li>
-			</ul>
-			
-			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<nav class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top" id="mainBar">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<!-- Jacques' Bagels brand logo on the navbar -->
+					<a class="navbar-brand" href="#" id="logo"> 
+					
+					<!-- Logo image can be inserted here -->
+					
+					Jacques' Bagels
+					</a>
+					
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+					
+					<!-- Navbar elements -->
+					<ul class="navbar-nav">
+					
+						<!-- Items in the navbar -->
+						<li class="nav-item">
+							<a class="nav-link" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Reservations</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Menu</a>
+						</li>
+					  
+						
+						<!-- Navbar dropdown menu, may get removed later -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">More</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Online orders</a></li>
+								<li><a class="dropdown-item" href="#">Contact us</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			
 			</div>
-			
-		  </div>
 		</nav>
+		
 	</body>
 	
 </html>
