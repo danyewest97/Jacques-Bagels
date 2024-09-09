@@ -1,3 +1,13 @@
 .center {
 	text-align: center;
 }
+
+#about {
+	display: block;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+#nav-logo {
+	height: 75px;
+}
