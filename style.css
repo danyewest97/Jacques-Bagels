@@ -1,7 +1,4 @@
-#mainBar {
-	font-size: 40px;
-}
-
-#logo {
-	font-size: 40px;
+.navbar-nav > li {
+	padding-left: 30px;
+	padding-right: 30px;
 }
