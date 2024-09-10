@@ -44,4 +44,15 @@ $(document).ready(function() {
 
 	// adding the navbar to any elements with the mainBar id
 	$("#mainBar").append(nav);
+	
+	const cart = [];
+	
+	$("p").click(function() {
+		cart.push("pog");
+		localStorage.setItem("cart", cart);
+		console.log(localStorage.getItem("cart"));
+	});
+	
+	
+	
 });
