@@ -42,10 +42,6 @@ $(document).ready(function() {
 '			</div>' +
 '		</nav>';
 
-	//adding this variable to the first element with the id mainBar
-	var mainBar = document.getElementById('mainBar');
-	mainBar.insertAdjacentHTML('beforeend', nav);
-	
-	// This code is much simpler with JQuery, however it makes the navbar glitch when the page is reloaded or when switching pages
-	// $("#mainBar").append(nav);
+	// adding the navbar to any elements with the mainBar id
+	$("#mainBar").append(nav);
 });
