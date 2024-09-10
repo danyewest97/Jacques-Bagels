@@ -67,8 +67,12 @@ $(document).ready(function() {
 	});
 	
 	
-	window.onbeforeunload = function() {
-		const emptyArray = [];
-		localStorage.setItem("cart", JSON.stringify(emptyArray));
-	};
+	// window.onbeforeunload = function() {
+		// const emptyArray = [];
+		// localStorage.setItem("cart", JSON.stringify(emptyArray));
+	// };
+	
+	// window.onbeforeunload = function () {
+		// return "Do you really want to close?";
+	// };
 });
