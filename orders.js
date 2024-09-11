@@ -26,6 +26,12 @@ $(document).ready(function() {
 	
 	refreshCart();
 	
+	
+	//This is a list of the available custom items that can be created and purchased by the user
+	//For actually ordering, change the properties of these objects to what the user inputs before adding
+	//them to the cart 
+	//When they are added to the cart, they will be reset so that new custom items can be made by the user
+	
 	//This is a customBagel object that stores an array of toppings
 	const customBagel = {
 		//common things on a bagel that can be changed by the user
@@ -35,19 +41,116 @@ $(document).ready(function() {
 		type: "",
 		
 		//notes is used for if the user has a specific request for their bagel
-		notes: ""
+		notes: "",
+		
+		reset: function() {
+			toppings = [];
+			toasted = true;
+			spread = "";
+			type = "";
+			notes = "";
+		}
+	};
+	
+	const customDonut = {
+		//common things on a bagel that can be changed by the user
+		toppings: [],
+		warmed: true,
+		filling: "",
+		type: "",
+		
+		//notes is used for if the user has a specific request for their bagel
+		notes: "",
+		
+		reset: function() {
+			toppings = [];
+			warmed = true;
+			filling = "";
+			type = "";
+			notes = "";
+		}
+	};
+	
+	const customCroissant = {
+		//common things on a bagel that can be changed by the user
+		toppings: [],
+		warmed: true,
+		spread: "",
+		filling: "",
+		type: "",
+		
+		//notes is used for if the user has a specific request for their bagel
+		notes: "",
+		
+		reset: function() {
+			toppings = [];
+			warmed = true;
+			spread = "";
+			filling = "";
+			type = "";
+			notes = "";
+		}
+	};
+	
+	//only 1 layer for now, probably won't add multiple layers for this project
+	const customSandwich = {
+		//common things on a bagel that can be changed by the user
+		toppings: [],
+		toasted: true,
+		topSpread: "",
+		bottomSpread: "",
+		bread: "",
+		
+		//notes is used for if the user has a specific request for their bagel
+		notes: "",
+		
+		reset: function() {
+			toppings = [];
+			toasted = true;
+			topSpread = "";
+			bottomSpread = "";
+			bread = "";
+			notes = "";
+		}
 	};
 	
 	
+	
+	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$("p").click(function() {
 		cart.push(customBagel);
 		localStorage.setItem("cart", JSON.stringify(cart));
-		console.log(JSON.parse(localStorage.getItem("cart")));
+		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		customBagel.reset();
 	});
 	
 	
+	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
+	$("p").click(function() {
+		cart.push(customDonut);
+		localStorage.setItem("cart", JSON.stringify(cart));
+		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		customDonut.reset();
+	});
 	
 	
+	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
+	$("p").click(function() {
+		cart.push(customCroissant);
+		localStorage.setItem("cart", JSON.stringify(cart));
+		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		customCroissant.reset();
+	});
+
+
+	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
+	$("p").click(function() {
+		cart.push(customSandwich);
+		localStorage.setItem("cart", JSON.stringify(cart));
+		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		customSandwich.reset();
+		
+	});
 	
 	
 	
