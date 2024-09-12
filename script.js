@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	$(".submit-message").hide();
+	
 	// A variable that contains the HTML for the main navbar
 	var nav = '<nav class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top justify-content-center" width="10px">' +
 '			<div class="container-fluid">' +
@@ -44,5 +46,13 @@ $(document).ready(function() {
 
 	// adding the navbar to any elements with the mainBar id
 	$("#mainBar").append(nav);
+	
+	$(".reservation-form").submit(function(e) {
+		e.preventDefault();
+		$(".submit-message").show();
+		setTimeout(function() {
+			$(".submit-message").hide();
+		}, 1500);
+	});
 	
 });
