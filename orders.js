@@ -202,12 +202,19 @@ $(document).ready(function() {
 	
 	//UNTESTED, need to add some actual items to click on first
 	function addToCustomItem(parentType, type, value) {
+		//iterating through the availableItems
 		for (let i = 0; i < availableItems.length; i++) {
+			
+			//checking what customItem parent the given item being added to a customItem has
 			if (parentType == availableItems[i].name) {
+				
+				//new variable containing all of the properties of the parent customItem object
 				var properties = Object.keys(availableItems[i]);
 				
+				//iterating through those properties and checking which property the given item being added affects
 				for (let j = 0; j < properties.length; j++) {
 					
+					//changing the proper property (all the other code should work but I'm not sure if this will)
 					if (type == properties[i]) {
 						properties[i] == value;
 					}
