@@ -40,7 +40,7 @@
 }
 
 
-.card img {
+.card > img {
 	object-fit: contain;
 	overflow: hidden;
 }
@@ -54,6 +54,10 @@
 	margin-right: 100px;
 	height:400px;
 }
+
+
+html{
+	background-color: #decaa4;
 
 /* Add this class to any items used for ordering (things like toppings) so that jQuery can tell when they are clicked on  */
 /* and handle orders properly */
@@ -75,4 +79,5 @@
 
 .add-to-cart-sandwich {
 	
+
 }
