@@ -9,8 +9,8 @@ $(document).ready(function() {
 		"pepper"
 	];
 	
-	//An array of all available spreads (more will be/need to be added)
-	const spreads = [
+	//An array of all available spreadss (more will be/need to be added)
+	const spreadss = [
 		"butter",
 		"cream cheese",
 		"lox"
@@ -39,19 +39,19 @@ $(document).ready(function() {
 		name: "bagel", //the name used to refer to this object in the datasets of HTML elements
 		//common things on a bagel that can be changed by the user
 		toppings: [],
-		toasted: true,
-		spread: [],
+		// toasted: true,
+		spreads: [],
 		type: [],
 		
 		//notes is used for if the user has a specific request for their bagel
 		notes: [],
 		
 		reset: function() {
-			toppings = [];
-			toasted = true;
-			spread = [];
-			type = [];
-			notes = [];
+			this.toppings = [];
+			// this.toasted = true;
+			this.spreads = [];
+			this.type = [];
+			this.notes = [];
 		}
 	};
 	
@@ -59,7 +59,7 @@ $(document).ready(function() {
 		name: "donut", //the name used to refer to this object in the datasets of HTML elements
 		//common things on a donut that can be changed by the user
 		toppings: [],
-		warmed: true,
+		// warmed: true,
 		filling: [],
 		type: [],
 		
@@ -67,11 +67,11 @@ $(document).ready(function() {
 		notes: [],
 		
 		reset: function() {
-			toppings = [];
-			warmed = true;
-			filling = [];
-			type = [];
-			notes = [];
+			this.toppings = [];
+			// this.warmed = true;
+			this.filling = [];
+			this.type = [];
+			this.notes = [];
 		}
 	};
 	
@@ -79,8 +79,8 @@ $(document).ready(function() {
 		name: "croissant", //the name used to refer to this object in the datasets of HTML elements
 		//common things on a croissant that can be changed by the user
 		toppings: [],
-		warmed: true,
-		spread: [],
+		// warmed: true,
+		spreads: [],
 		filling: [],
 		type: [],
 		
@@ -88,12 +88,12 @@ $(document).ready(function() {
 		notes: [],
 		
 		reset: function() {
-			toppings = [];
-			warmed = true;
-			spread = [];
-			filling = [];
-			type = [];
-			notes = [];
+			this.toppings = [];
+			// this.warmed = true;
+			this.spreads = [];
+			this.filling = [];
+			this.type = [];
+			this.notes = [];
 		}
 	};
 	
@@ -102,9 +102,9 @@ $(document).ready(function() {
 		name: "sandwich", //the name used to refer to this object in the datasets of HTML elements
 		//common things on a sandwich that can be changed by the user
 		toppings: [],
-		toasted: true,
-		topSpread: [],
-		bottomSpread: [],
+		// toasted: true,
+		topspreads: [],
+		bottomspreads: [],
 		bread: [],
 		breadType: [],
 		
@@ -112,13 +112,13 @@ $(document).ready(function() {
 		notes: [],
 		
 		reset: function() {
-			toppings = [];
-			toasted = true;
-			topSpread = [];
-			bottomSpread = [];
-			bread = [];
-			breadType = [];
-			notes = [];
+			this.toppings = [];
+			// this.toasted = true;
+			this.topspreads = [];
+			this.bottomspreads = [];
+			this.bread = [];
+			this.breadType = [];
+			this.notes = [];
 		}
 	};
 	
@@ -138,6 +138,8 @@ $(document).ready(function() {
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		customBagel.reset();
+		
+		console.log(JSON.parse(localStorage.getItem("cart")));
 	});
 	
 	
@@ -192,7 +194,7 @@ $(document).ready(function() {
 	//When an item (not the customItems, instead things like a topping or bagel type) is clicked on, checks the
 	//data of that item and adds it to the appropriate customItem
 	$(".item").click(function() {
-		var parentType = this.dataset.parent-type; //the parent item type of the item (bagel, donut, croissant, sandwich)
+		var parentType = this.dataset.ancestor; //the parent item type of the item (bagel, donut, croissant, sandwich)
 		var type = this.dataset.type; //the actual type of the item (topping, bread, etc.)
 		var value = this.dataset.value; //the actual value of the topping (i.e. lemon pepper would have a value of "lemon pepper")
 		
@@ -202,7 +204,6 @@ $(document).ready(function() {
 	
 	
 	
-	//UNTESTED, need to add some actual items to click on first
 	function toggleCustomItem(parentType, type, value) {
 		//iterating through the availableItems
 		for (let i = 0; i < availableItems.length; i++) {
@@ -214,14 +215,14 @@ $(document).ready(function() {
 				var properties = Object.keys(availableItems[i]);
 				
 				//iterating through those properties and checking which property the given item being added affects
-				for (let j = 0; j < properties.length; j++) {
-					
+				for (const property of properties) {
 					//changing the proper property (all the other code should work but I'm not sure if this will)
-					if (type == properties[i]) {
-						if (checkForValue(properties[i], value) {
-							properties[i].push(value);
+					if (type == property) {
+						if (!checkForValue(availableItems[i][property], value)) {
+							var curObj = availableItems[i];
+							curObj[property].push(value);
 						} else {
-							removeValue(property, value);
+							removeValue(availableItems[i][property], value);
 						}
 					}
 				}
@@ -261,6 +262,7 @@ $(document).ready(function() {
 		} catch(err) {
 			
 		}
+		
 	}
 	
 	
