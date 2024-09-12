@@ -45,4 +45,30 @@ $(document).ready(function() {
 	// adding the navbar to any elements with the mainBar id
 	$("#mainBar").append(nav);
 	
+	
+	$(".card").click(function() {
+		if((this).dataset.parent-type == "bagel"){
+			$("#bagelDrop").slideToggle();
+			$("#donutDrop").slideUp();
+			$("#croissantDrop").slideUp();
+			$("#sandwichDrop").slideUp();
+		} else if((this).dataset.parent-type == "donut"){
+			$("#bagelDrop").slideUp();
+			$("#donutDrop").slideToggle();
+			$("#croissantDrop").slideUp();
+			$("#sandwichDrop").slideUp();
+		} else if((this).dataset.parent-type == "croissant"){
+			$("#bagelDrop").slideToggle();
+			$("#donutDrop").slideUp();
+			$("#croissantDrop").slideToggle();
+			$("#sandwichDrop").slideUp();
+		} else {
+			$("#bagelDrop").slideToggle();
+			$("#donutDrop").slideUp();
+			$("#croissantDrop").slideUp();
+			$("#sandwichDrop").slideToggle();
+		}
+		
+		
+	});
 });
