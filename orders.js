@@ -57,7 +57,7 @@ $(document).ready(function() {
 	
 	const customDonut = {
 		name: "donut", //the name used to refer to this object in the datasets of HTML elements
-		//common things on a bagel that can be changed by the user
+		//common things on a donut that can be changed by the user
 		toppings: [],
 		warmed: true,
 		filling: "",
@@ -77,7 +77,7 @@ $(document).ready(function() {
 	
 	const customCroissant = {
 		name: "croissant", //the name used to refer to this object in the datasets of HTML elements
-		//common things on a bagel that can be changed by the user
+		//common things on a croissant that can be changed by the user
 		toppings: [],
 		warmed: true,
 		spread: "",
@@ -100,12 +100,13 @@ $(document).ready(function() {
 	//only 1 layer for now, probably won't add multiple layers for this project
 	const customSandwich = {
 		name: "sandwich", //the name used to refer to this object in the datasets of HTML elements
-		//common things on a bagel that can be changed by the user
+		//common things on a sandwich that can be changed by the user
 		toppings: [],
 		toasted: true,
 		topSpread: "",
 		bottomSpread: "",
 		bread: "",
+		breadType: "",
 		
 		//notes is used for if the user has a specific request for their bagel
 		notes: "",
@@ -116,6 +117,7 @@ $(document).ready(function() {
 			topSpread = "";
 			bottomSpread = "";
 			bread = "";
+			breadType = "";
 			notes = "";
 		}
 	};
@@ -131,7 +133,7 @@ $(document).ready(function() {
 	
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$("p").click(function() {
+	$(".checkout-bagel").click(function() {
 		cart.push(customBagel);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
@@ -140,7 +142,7 @@ $(document).ready(function() {
 	
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$("p").click(function() {
+	$(".checkout-donut").click(function() {
 		cart.push(customDonut);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
@@ -149,7 +151,7 @@ $(document).ready(function() {
 	
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$("p").click(function() {
+	$("checkout-croissant").click(function() {
 		cart.push(customCroissant);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
@@ -158,7 +160,7 @@ $(document).ready(function() {
 
 
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$("p").click(function() {
+	$("checkout-sandwich").click(function() {
 		cart.push(customSandwich);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
