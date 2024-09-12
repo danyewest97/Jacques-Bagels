@@ -229,6 +229,8 @@ $(document).ready(function() {
 		}
 	}
 	
+	
+	//checks for a value in a property array for a custom item and returns true if it is found, false if not
 	function checkForValue(property, value) {
 		for (let i = 0; i < property.length; i++) {
 			if (property[i] == value) {
@@ -238,10 +240,12 @@ $(document).ready(function() {
 		return false;
 	}
 	
+	//checks for a value in a property array for a custom item and removes that value and all instances of it
 	function removeValue(property, value) {
 		for (let i = 0; i < property.length; i++) {
 			if (property[i] == value) {
-				property.remove(
+				property.splice(i, 1);
+				i--;
 			}
 		}
 	}
