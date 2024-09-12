@@ -40,18 +40,18 @@ $(document).ready(function() {
 		//common things on a bagel that can be changed by the user
 		toppings: [],
 		toasted: true,
-		spread: "",
-		type: "",
+		spread: [],
+		type: [],
 		
 		//notes is used for if the user has a specific request for their bagel
-		notes: "",
+		notes: [],
 		
 		reset: function() {
 			toppings = [];
 			toasted = true;
-			spread = "";
-			type = "";
-			notes = "";
+			spread = [];
+			type = [];
+			notes = [];
 		}
 	};
 	
@@ -60,18 +60,18 @@ $(document).ready(function() {
 		//common things on a donut that can be changed by the user
 		toppings: [],
 		warmed: true,
-		filling: "",
-		type: "",
+		filling: [],
+		type: [],
 		
 		//notes is used for if the user has a specific request for their bagel
-		notes: "",
+		notes: [],
 		
 		reset: function() {
 			toppings = [];
 			warmed = true;
-			filling = "";
-			type = "";
-			notes = "";
+			filling = [];
+			type = [];
+			notes = [];
 		}
 	};
 	
@@ -80,20 +80,20 @@ $(document).ready(function() {
 		//common things on a croissant that can be changed by the user
 		toppings: [],
 		warmed: true,
-		spread: "",
-		filling: "",
-		type: "",
+		spread: [],
+		filling: [],
+		type: [],
 		
 		//notes is used for if the user has a specific request for their bagel
-		notes: "",
+		notes: [],
 		
 		reset: function() {
 			toppings = [];
 			warmed = true;
-			spread = "";
-			filling = "";
-			type = "";
-			notes = "";
+			spread = [];
+			filling = [];
+			type = [];
+			notes = [];
 		}
 	};
 	
@@ -103,22 +103,22 @@ $(document).ready(function() {
 		//common things on a sandwich that can be changed by the user
 		toppings: [],
 		toasted: true,
-		topSpread: "",
-		bottomSpread: "",
-		bread: "",
-		breadType: "",
+		topSpread: [],
+		bottomSpread: [],
+		bread: [],
+		breadType: [],
 		
 		//notes is used for if the user has a specific request for their bagel
-		notes: "",
+		notes: [],
 		
 		reset: function() {
 			toppings = [];
 			toasted = true;
-			topSpread = "";
-			bottomSpread = "";
-			bread = "";
-			breadType = "";
-			notes = "";
+			topSpread = [];
+			bottomSpread = [];
+			bread = [];
+			breadType = [];
+			notes = [];
 		}
 	};
 	
@@ -133,7 +133,7 @@ $(document).ready(function() {
 	
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$(".checkout-bagel").click(function() {
+	$(".add-to-cart-bagel").click(function() {
 		cart.push(customBagel);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
@@ -142,7 +142,7 @@ $(document).ready(function() {
 	
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$(".checkout-donut").click(function() {
+	$(".add-to-cart-donut").click(function() {
 		cart.push(customDonut);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
@@ -151,7 +151,7 @@ $(document).ready(function() {
 	
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$("checkout-croissant").click(function() {
+	$(".add-to-cart-croissant").click(function() {
 		cart.push(customCroissant);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
@@ -160,7 +160,7 @@ $(document).ready(function() {
 
 
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
-	$("checkout-sandwich").click(function() {
+	$(".add-to-cart-sandwich").click(function() {
 		cart.push(customSandwich);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
@@ -196,14 +196,14 @@ $(document).ready(function() {
 		var type = this.dataset.type; //the actual type of the item (topping, bread, etc.)
 		var value = this.dataset.value; //the actual value of the topping (i.e. lemon pepper would have a value of "lemon pepper")
 		
-		addToCustomItem(parentType, type, value);
+		toggleCustomItem(parentType, type, value);
 	});
 	
 	
 	
 	
 	//UNTESTED, need to add some actual items to click on first
-	function addToCustomItem(parentType, type, value) {
+	function toggleCustomItem(parentType, type, value) {
 		//iterating through the availableItems
 		for (let i = 0; i < availableItems.length; i++) {
 			
@@ -218,9 +218,30 @@ $(document).ready(function() {
 					
 					//changing the proper property (all the other code should work but I'm not sure if this will)
 					if (type == properties[i]) {
-						properties[i] == value;
+						if (checkForValue(properties[i], value) {
+							properties[i].push(value);
+						} else {
+							removeValue(property, value);
+						}
 					}
 				}
+			}
+		}
+	}
+	
+	function checkForValue(property, value) {
+		for (let i = 0; i < property.length; i++) {
+			if (property[i] == value) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	function removeValue(property, value) {
+		for (let i = 0; i < property.length; i++) {
+			if (property[i] == value) {
+				property.remove(
 			}
 		}
 	}
