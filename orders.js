@@ -2,26 +2,7 @@ $(document).ready(function() {
 	
 	
 	
-	//An array of all available toppings (more will be/need to be added)
-	const toppings = [
-		"lemon pepper",
-		"salt",
-		"pepper"
-	];
-	
-	//An array of all available spreadss (more will be/need to be added)
-	const spreadss = [
-		"butter",
-		"cream cheese",
-		"lox"
-	];
-	
-	//An array of all available bagel types (more will be/need to be added)
-	const types = [
-		"plain",
-		"sesame",
-		"everything"
-	];
+
 	
 	
 	const cart = [];
