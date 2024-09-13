@@ -1,8 +1,5 @@
 $(document).ready(function() {
 	
-
-	
-	
 	const cart = [];
 	
 	refreshCart();
@@ -172,22 +169,7 @@ $(document).ready(function() {
 	});
 	
 	
-	
-	//stores a boolean variable (isMySessionActive) that becomes true when the user loads the page
-	//and stays true when the user reloads the page, but becomes false after the user closes the page
-	//When the variable becomes false, this code clears the cart in the local storage so that the cart
-	//is stored on page reload, but cleared on tab termination
-	window.onbeforeunload = function (e) {
-		window.onunload = function () {
-			localStorage.isMySessionActive = "false";
-			localStorage.removeItem("cart");
-		}
-		return undefined;
-	};
 
-	window.onload = function () {
-		localStorage.isMySessionActive = "true";
-	};
 	
 	
 	//Here is all the code that actually stores the user's selected items (selected items do not save on page reload)
@@ -202,7 +184,11 @@ $(document).ready(function() {
 		toggleCustomItem(parentType, type, value);
 	});
 	
-	
+	$(".final-checkout").click(function() {
+		const empty = [];
+		localStorage.setItem("cart", empty);
+		cart.splice(0, cart.length);
+	});
 	
 	
 	function toggleCustomItem(parentType, type, value) {
@@ -257,8 +243,10 @@ $(document).ready(function() {
 		//This makes it so the user's cart items stay, even if they reload the page or go to another page
 		try {
 			const temp = JSON.parse(localStorage.getItem("cart"));
-			for (let i = 0; i < temp.length; i++) {
-				cart[i] = temp[i];
+			if (temp !== null) {
+				for (let i = 0; i < temp.length; i++) {
+					cart[i] = temp[i];
+				}
 			}
 		} catch(err) {
 			
