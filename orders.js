@@ -115,10 +115,13 @@ $(document).ready(function() {
 	$(".add-to-cart-bagel").click(function() {
 		cart.push(customBagel);
 		localStorage.setItem("cart", JSON.stringify(cart));
-		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
-		customBagel.reset();
+		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// customBagel.reset();
 		
-		console.log(JSON.parse(localStorage.getItem("cart")));
+		//works for now to reset button values in orders.html, but does not look very pretty
+		// setTimeout(function() {
+			// location.reload();
+		// }, 500);
 	});
 	
 	
@@ -126,8 +129,13 @@ $(document).ready(function() {
 	$(".add-to-cart-donut").click(function() {
 		cart.push(customDonut);
 		localStorage.setItem("cart", JSON.stringify(cart));
-		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
-		customDonut.reset();
+		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// customDonut.reset();
+		
+		//works for now to reset button values in orders.html, but does not look very pretty
+		// setTimeout(function() {
+			// location.reload();
+		// }, 500);
 	});
 	
 	
@@ -135,8 +143,13 @@ $(document).ready(function() {
 	$(".add-to-cart-croissant").click(function() {
 		cart.push(customCroissant);
 		localStorage.setItem("cart", JSON.stringify(cart));
-		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
-		customCroissant.reset();
+		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// customCroissant.reset();
+		
+		//works for now to reset button values in orders.html, but does not look very pretty
+		// setTimeout(function() {
+			// location.reload();
+		// }, 500);
 	});
 
 
@@ -144,8 +157,13 @@ $(document).ready(function() {
 	$(".add-to-cart-sandwich").click(function() {
 		cart.push(customSandwich);
 		localStorage.setItem("cart", JSON.stringify(cart));
-		//console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
-		customSandwich.reset();
+		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// customSandwich.reset();
+		
+		//works for now to reset button values in orders.html, but does not look very pretty
+		// setTimeout(function() {
+			// location.reload();
+		// }, 500);
 		
 	});
 	
