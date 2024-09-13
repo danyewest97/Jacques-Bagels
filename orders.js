@@ -113,7 +113,8 @@ $(document).ready(function() {
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-bagel").click(function() {
-		cart.push(customBagel);
+		let cartBagel = JSON.parse(JSON.stringify(customBagel));
+		cart.push(cartBagel);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customBagel.reset();
@@ -127,7 +128,8 @@ $(document).ready(function() {
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-donut").click(function() {
-		cart.push(customDonut);
+		let cartDonut = JSON.parse(JSON.stringify(customDonut));
+		cart.push(cartDonut);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customDonut.reset();
@@ -141,7 +143,8 @@ $(document).ready(function() {
 	
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-croissant").click(function() {
-		cart.push(customCroissant);
+		let cartCroissant = JSON.parse(JSON.stringify(customCroissant));
+		cart.push(cartCroissant);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customCroissant.reset();
@@ -155,7 +158,8 @@ $(document).ready(function() {
 
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-sandwich").click(function() {
-		cart.push(customSandwich);
+		let cartSandwich = JSON.parse(JSON.stringify(customSandwich));
+		cart.push(cartSandwich);
 		localStorage.setItem("cart", JSON.stringify(cart));
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customSandwich.reset();
