@@ -1,7 +1,5 @@
 $(document).ready(function() {
 	
-	
-	
 
 	
 	
@@ -249,23 +247,23 @@ $(document).ready(function() {
 	
 	
 	$(".card").click(function() {
-		if((this).dataset.parent-type == "bagel"){
+		if((this).dataset.type == "bagel"){
 			$("#bagelDrop").slideToggle();
 			$("#donutDrop").slideUp();
 			$("#croissantDrop").slideUp();
 			$("#sandwichDrop").slideUp();
-		} else if((this).dataset.parent-type == "donut"){
+		} else if((this).dataset.type == "donut"){
 			$("#bagelDrop").slideUp();
 			$("#donutDrop").slideToggle();
 			$("#croissantDrop").slideUp();
 			$("#sandwichDrop").slideUp();
-		} else if((this).dataset.parent-type == "croissant"){
-			$("#bagelDrop").slideToggle();
+		} else if((this).dataset.type == "croissant"){
+			$("#bagelDrop").slideUp();
 			$("#donutDrop").slideUp();
 			$("#croissantDrop").slideToggle();
 			$("#sandwichDrop").slideUp();
 		} else {
-			$("#bagelDrop").slideToggle();
+			$("#bagelDrop").slideUp();
 			$("#donutDrop").slideUp();
 			$("#croissantDrop").slideUp();
 			$("#sandwichDrop").slideToggle();
