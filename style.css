@@ -52,7 +52,15 @@
 	justify-content: center;
 	margin-left: 100px;
 	margin-right: 100px;
-	height:400px;
+	height: 400px;
+}
+
+.menu-flex-container {
+	display: flex;
+	justify-content: center;
+	margin-left: 100px;
+	margin-right: 100px;
+	height: 100%;
 }
 
 
@@ -93,5 +101,22 @@
 	margin-left:5%;
 }
 
+.tiny {
+	font-size: 20px;
+}
+
+.menu-item {
+	width: 20%;
+	height: 100%;
+	display: inline-block;
+}
+
+
+.menu-item > img {
+	height: 200px;
+	width: 200px;
+	border: 2px solid black;
+	border-radius: 5px;
+}
 
 

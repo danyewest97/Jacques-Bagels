@@ -31,12 +31,15 @@ $(document).ready(function() {
 		}
 	};
 	
+	// ඞඞඞ
+	
+	
 	const customDonut = {
 		name: "donut", //the name used to refer to this object in the datasets of HTML elements
 		//common things on a donut that can be changed by the user
 		toppings: [],
 		// warmed: true,
-		filling: [],
+		fillings: [],
 		type: [],
 		
 		//notes is used for if the user has a specific request for their bagel
@@ -45,7 +48,7 @@ $(document).ready(function() {
 		reset: function() {
 			this.toppings = [];
 			// this.warmed = true;
-			this.filling = [];
+			this.fillings = [];
 			this.type = [];
 			this.notes = [];
 		}
@@ -57,7 +60,7 @@ $(document).ready(function() {
 		toppings: [],
 		// warmed: true,
 		spreads: [],
-		filling: [],
+		fillings: [],
 		type: [],
 		
 		//notes is used for if the user has a specific request for their bagel
@@ -67,7 +70,7 @@ $(document).ready(function() {
 			this.toppings = [];
 			// this.warmed = true;
 			this.spreads = [];
-			this.filling = [];
+			this.fillings = [];
 			this.type = [];
 			this.notes = [];
 		}
