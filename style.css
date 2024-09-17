@@ -117,3 +117,14 @@
 	border-radius: 5px;
 }
 
+.checkout > label {
+	font-size: 40px;
+}
+
+.final-checkout {
+	position: relative;
+	bottom: 100px;
+	text-align: center;
+	border: none;
+	width: 25%;
+}
