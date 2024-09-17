@@ -21,7 +21,7 @@
 
 .card {
 	display: inline-block;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
 	padding: 20px;
 	margin:50px;
@@ -57,7 +57,6 @@
 
 .menu-flex-container {
 	display: flex;
-	justify-content: center;
 	margin-left: 100px;
 	margin-right: 100px;
 	height: 100%;
