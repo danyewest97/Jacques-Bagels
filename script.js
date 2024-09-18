@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	
 	$(".submit-message").hide();
+	$(".added-to-cart").hide();
 	
 	// A variable that contains the HTML for the main navbar
 	var nav = '<nav class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top justify-content-center" width="10px">' +
@@ -55,4 +56,11 @@ $(document).ready(function() {
 		}, 1500);
 	});
 	
+	
+	$(".menu-item").click(function() {
+		$(".added-to-cart").show();
+		setTimeout(function() {
+			$(".added-to-cart").hide();
+		}, 1500);
+	});
 });

@@ -114,8 +114,7 @@ $(document).ready(function() {
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-bagel").click(function() {
 		let cartBagel = JSON.parse(JSON.stringify(customBagel));
-		cart.push(cartBagel);
-		localStorage.setItem("cart", JSON.stringify(cart));
+		addToCart(cartBagel);
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customBagel.reset();
 		
@@ -129,8 +128,7 @@ $(document).ready(function() {
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-donut").click(function() {
 		let cartDonut = JSON.parse(JSON.stringify(customDonut));
-		cart.push(cartDonut);
-		localStorage.setItem("cart", JSON.stringify(cart));
+		addToCart(cartDonut);
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customDonut.reset();
 		
@@ -144,8 +142,7 @@ $(document).ready(function() {
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-croissant").click(function() {
 		let cartCroissant = JSON.parse(JSON.stringify(customCroissant));
-		cart.push(cartCroissant);
-		localStorage.setItem("cart", JSON.stringify(cart));
+		addToCart(cartCroissant);
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customCroissant.reset();
 		
@@ -159,8 +156,7 @@ $(document).ready(function() {
 	//When the order HTML is done, p needs to be changed to a different selector (maybe #customBagel or #customSandwich, etc.)
 	$(".add-to-cart-sandwich").click(function() {
 		let cartSandwich = JSON.parse(JSON.stringify(customSandwich));
-		cart.push(cartSandwich);
-		localStorage.setItem("cart", JSON.stringify(cart));
+		addToCart(cartSandwich);
 		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customSandwich.reset();
 		
@@ -284,4 +280,26 @@ $(document).ready(function() {
 		
 		
 	});
+	
+	const everythingSandwich = {
+		name: "sandwich", //the name used to refer to this object in the datasets of HTML elements
+		//common things on a sandwich that can be changed by the user
+		toppings: ["everything"],
+		// toasted: true,
+		topspreads: ["everything"],
+		bottomspreads: ["everything"],
+		bread: ["everything"],
+		breadType: ["everything"]
+	};
+	
+	
+	$(".everything-sandwich").click(function() {
+		addToCart(JSON.parse(JSON.stringify(everythingSandwich)));
+	});
+	
+	function addToCart(customItem) {
+		cart.push(customItem);
+		localStorage.setItem("cart", JSON.stringify(cart));
+		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+	}
 });
