@@ -115,6 +115,7 @@
 	width: 80%;
 	border: 2px solid black;
 	border-radius: 5px;
+
 }
 
 .checkout > label {
@@ -131,4 +132,9 @@
 
 .btn {
 	margin-bottom: 1%;
+}
+
+.spaced{
+	margin-left: 20%;
+	margin-right:20%;
 }

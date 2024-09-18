@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	
 	$(".submit-message").hide();
 	$(".added-to-cart").hide();
 	
@@ -63,4 +62,5 @@ $(document).ready(function() {
 			$(".added-to-cart").hide();
 		}, 1500);
 	});
+	
 });

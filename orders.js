@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	$(".checkout-message").hide();
+	
 	const cart = [];
 	
 	refreshCart();
@@ -115,13 +117,8 @@ $(document).ready(function() {
 	$(".add-to-cart-bagel").click(function() {
 		let cartBagel = JSON.parse(JSON.stringify(customBagel));
 		addToCart(cartBagel);
-		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customBagel.reset();
-		
-		//works for now to reset button values in orders.html, but does not look very pretty
-		// setTimeout(function() {
-			// location.reload();
-		// }, 500);
 	});
 	
 	
@@ -129,13 +126,8 @@ $(document).ready(function() {
 	$(".add-to-cart-donut").click(function() {
 		let cartDonut = JSON.parse(JSON.stringify(customDonut));
 		addToCart(cartDonut);
-		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customDonut.reset();
-		
-		//works for now to reset button values in orders.html, but does not look very pretty
-		// setTimeout(function() {
-			// location.reload();
-		// }, 500);
 	});
 	
 	
@@ -143,13 +135,8 @@ $(document).ready(function() {
 	$(".add-to-cart-croissant").click(function() {
 		let cartCroissant = JSON.parse(JSON.stringify(customCroissant));
 		addToCart(cartCroissant);
-		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customCroissant.reset();
-		
-		//works for now to reset button values in orders.html, but does not look very pretty
-		// setTimeout(function() {
-			// location.reload();
-		// }, 500);
 	});
 
 
@@ -157,13 +144,8 @@ $(document).ready(function() {
 	$(".add-to-cart-sandwich").click(function() {
 		let cartSandwich = JSON.parse(JSON.stringify(customSandwich));
 		addToCart(cartSandwich);
-		console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
+		// console.log(JSON.parse(localStorage.getItem("cart"))); //for debugging
 		// customSandwich.reset();
-		
-		//works for now to reset button values in orders.html, but does not look very pretty
-		// setTimeout(function() {
-			// location.reload();
-		// }, 500);
 		
 	});
 	
@@ -187,6 +169,10 @@ $(document).ready(function() {
 		const empty = [];
 		localStorage.setItem("cart", empty);
 		cart.splice(0, cart.length);
+		$(".checkout-message").show();
+		setTimeout(function() {
+			$(".checkout-message").hide();
+		}, 3500);
 	});
 	
 	
@@ -292,9 +278,42 @@ $(document).ready(function() {
 		breadType: ["everything"]
 	};
 	
+	const bagelDough = {
+		name: "dough", //the name used to refer to this object in the datasets of HTML elements
+		//common things on a sandwich that can be changed by the user
+		toppings: ["egg wash"],
+		bread: ["raw"]
+	};
 	
-	$(".everything-sandwich").click(function() {
+	const donuts = {
+		name: "donuts", //the name used to refer to this object in the datasets of HTML elements
+		//common things on a sandwich that can be changed by the user
+		toppings: ["sugar", "more sugar", "even more sugar", "sprinkles"],
+		type: ["sugar"]
+	};
+	
+	const donation = {
+		name: "donation", //the name used to refer to this object in the datasets of HTML elements
+		//common things on a sandwich that can be changed by the user
+		toppings: ["nothing"],
+		bread: ["none"]
+	};
+	
+	
+	$(".menu-sandwich").click(function() {
 		addToCart(JSON.parse(JSON.stringify(everythingSandwich)));
+	});
+	
+	$(".menu-dough").click(function() {
+		addToCart(JSON.parse(JSON.stringify(bagelDough)));
+	});
+	
+	$(".menu-donuts").click(function() {
+		addToCart(JSON.parse(JSON.stringify(donuts)));
+	});
+	
+	$(".menu-donation").click(function() {
+		addToCart(JSON.parse(JSON.stringify(donation)));
 	});
 	
 	function addToCart(customItem) {
